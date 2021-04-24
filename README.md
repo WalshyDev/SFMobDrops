@@ -1,6 +1,6 @@
-<h1 align="center">Template</h1>
+<h1 align="center">SFMobDrops</h1>
 
-<h3 align="center">Template README for all my GitHub repositories.</h3>
+<h3 align="center">Add Slimefun items to mob drops!</h3>
 
 <!-- Badges -->
 <p align="center">
@@ -16,7 +16,7 @@
 
 ## Hello
 
-This template repository exists so I can easily bring across files such as my FUNDING.md and a nice template for my README.
+This repository is the source code and download page for SFMobDrops. A simple plugin to add Slimefun drops to any mob.
 
 ## Contributing
 

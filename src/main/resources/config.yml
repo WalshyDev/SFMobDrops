@@ -1,0 +1,35 @@
+# There are quite a few configuration options available for the drops.
+# The following properties are required:
+#   - entity
+#     This is the entity which drops the item, available IDs here: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html.
+#     Example: ZOMBIE
+#   - slimefunItem
+#     This is the Slimefun item ID. Best way to find this is on the Discord: https://discord.gg/slimefun.
+#     Example: MAGICAL_ZOMBIE_PILLS
+#   - chance
+#     This is a number from 0-100 (decimals supported) change to drop this item.
+#     Example: 69.420
+#
+# The following properties are optional:
+#   - name
+#     The entity requires this name.
+#     Example: '&cAmazing Mob'
+#   - nbtTag
+#     The entity requires this NBT tag.
+#     Example: 'amazing_mob:some_mob_id'
+#   - amount
+#     The amount of the given item to drop.
+#     Example: 10
+drops:
+  # This is a basic example
+  - entity: ZOMBIE
+    slimefunItem: MAGICAL_ZOMBIE_PILLS
+    chance: 4.20
+
+  # More complex example
+  - entity: ENDER_DRAGON
+    slimefunItem: ANCIENT_RUNE_SOULBOUND
+    chance: 100
+    name: '&cAmazing Dragon'
+    nbtTag: 'plugin_name:awesome_mob'
+    amount: 6
