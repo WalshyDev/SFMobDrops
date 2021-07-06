@@ -2,6 +2,7 @@ package dev.walshy.sfmobdrops;
 
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
 import me.mrCookieSlime.Slimefun.cscorelib2.chat.ChatColors;
+import org.bstats.bukkit.Metrics;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.event.EventHandler;
@@ -32,6 +33,8 @@ public class SfMobDrops extends JavaPlugin implements Listener {
         if (!new File(getDataFolder(), "config.yml").exists()) {
             saveDefaultConfig();
         }
+
+        new Metrics(this, 11950);
 
         loadConfig();
 
@@ -79,7 +82,6 @@ public class SfMobDrops extends JavaPlugin implements Listener {
     public void onMobDeath(@Nonnull EntityDeathEvent e) {
         final Drop drop = findDropFromEntity(e.getEntity());
 
-        final double chance = ThreadLocalRandom.current().nextDouble(100);
         if (drop != null && ThreadLocalRandom.current().nextDouble(100) <= drop.getChance()) {
             final SlimefunItem item = SlimefunItem.getByID(drop.getSlimefunId());
 
