@@ -4,7 +4,7 @@
 #     This is the entity which drops the item, available IDs here: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html.
 #     Example: ZOMBIE
 #   - slimefunItem
-#     This is the Slimefun item ID. Best way to find this is on the Discord: https://discord.gg/slimefun.
+#     This is the Slimefun item ID. Best way to find this is on this website: https://sf-items.walshy.dev/.
 #     Example: MAGICAL_ZOMBIE_PILLS
 #   - chance
 #     This is a number from 0-100 (decimals supported) change to drop this item.

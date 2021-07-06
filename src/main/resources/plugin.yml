@@ -1,7 +1,12 @@
 name: SFMobDrops
 description: Add random Slimefun mob drops
-version: 1.0
+version: ${project.version}
 api-version: 1.14
 author: WalshyDev
 main: dev.walshy.sfmobdrops.SfMobDrops
 depend: [Slimefun]
+
+commands:
+  mobdrops:
+    description: Mob drops
+    aliases: [sfmobdrops, mobdrop, sfmd]

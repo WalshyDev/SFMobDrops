@@ -1,5 +1,6 @@
 package dev.walshy.sfmobdrops;
 
+import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
 import org.bukkit.entity.EntityType;
 
 import javax.annotation.Nonnull;
@@ -53,5 +54,10 @@ public class Drop {
 
     public int getAmount() {
         return amount;
+    }
+
+    @Nullable
+    public SlimefunItem getSlimefunItem() {
+        return SlimefunItem.getByID(getSlimefunId());
     }
 }

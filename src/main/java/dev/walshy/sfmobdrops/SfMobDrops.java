@@ -22,19 +22,25 @@ import java.util.logging.Level;
 
 public class SfMobDrops extends JavaPlugin implements Listener {
 
-    /*
-     * TODO: Add a reload command
-     */
+    private static SfMobDrops instance;
 
     private final Set<Drop> drops = new HashSet<>();
 
     @Override
     public void onEnable() {
+        instance = this;
         if (!new File(getDataFolder(), "config.yml").exists()) {
             saveDefaultConfig();
         }
 
         loadConfig();
+
+        getCommand("mobdrops").setExecutor(new MobDropsCommand());
+    }
+
+    @Override
+    public void onDisable() {
+        instance = null;
     }
 
     public void loadConfig() {
@@ -131,7 +137,7 @@ public class SfMobDrops extends JavaPlugin implements Listener {
 
         if (SlimefunItem.getByID(sfItem) == null) {
             getLogger().warning("Invalid Slimefun Item ID! Given: " + sfItem + " - valid values can be found "
-                + "on the Discord: https://discord.gg/slimefun");
+                + "here: https://sf-items.walshy.dev/");
             return false;
         }
 
@@ -143,7 +149,7 @@ public class SfMobDrops extends JavaPlugin implements Listener {
         try {
             return EntityType.valueOf(str);
         } catch (IllegalArgumentException e) {
-            getLogger().log(Level.WARNING, "Invalid Entity Type given! " + str + " is not valid!", e);
+            getLogger().log(Level.WARNING, "Invalid Entity Type given! {0} is not valid!", str);
             return null;
         }
     }
@@ -172,5 +178,15 @@ public class SfMobDrops extends JavaPlugin implements Listener {
 
     private double getDouble(@Nonnull Object obj) {
         return obj instanceof Integer ? (int) obj : (double) obj;
+    }
+
+    @Nonnull
+    public Set<Drop> getDrops() {
+        return drops;
+    }
+
+    @Nonnull
+    public static SfMobDrops getInstance() {
+        return instance;
     }
 }
