@@ -35,6 +35,9 @@ public class SfMobDrops extends JavaPlugin implements Listener {
 
         loadConfig();
 
+        getServer().getPluginManager().registerEvents(this, this);
+        getServer().getPluginManager().registerEvents(new Guis(), this);
+
         getCommand("mobdrops").setExecutor(new MobDropsCommand());
     }
 
@@ -43,7 +46,7 @@ public class SfMobDrops extends JavaPlugin implements Listener {
         instance = null;
     }
 
-    public void loadConfig() {
+    protected void loadConfig() {
         final Set<Drop> newSet = new HashSet<>();
 
         //noinspection unchecked
@@ -76,6 +79,7 @@ public class SfMobDrops extends JavaPlugin implements Listener {
     public void onMobDeath(@Nonnull EntityDeathEvent e) {
         final Drop drop = findDropFromEntity(e.getEntity());
 
+        final double chance = ThreadLocalRandom.current().nextDouble(100);
         if (drop != null && ThreadLocalRandom.current().nextDouble(100) <= drop.getChance()) {
             final SlimefunItem item = SlimefunItem.getByID(drop.getSlimefunId());
 

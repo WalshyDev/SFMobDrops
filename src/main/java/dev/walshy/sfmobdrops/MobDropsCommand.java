@@ -31,20 +31,15 @@ public class MobDropsCommand implements TabExecutor {
         } else {
             if (args[0].equalsIgnoreCase("reload")) {
                 SfMobDrops.getInstance().reloadConfig();
+                SfMobDrops.getInstance().loadConfig();
                 sender.sendMessage(ChatColor.DARK_GREEN + "Reloaded config!");
             } else if (args[0].equalsIgnoreCase("list")) {
                 if (!(sender instanceof Player)) {
                     sender.sendMessage(ChatColor.RED + "You need to be a player, sorry :/");
                     return true;
                 }
-                Guis.openMobDropList();
-            } else if (args[0].equalsIgnoreCase("new")) {
-                if (!(sender instanceof Player)) {
-                    sender.sendMessage(ChatColor.RED + "You need to be a player, sorry :/");
-                    return true;
-                }
-                sender.sendMessage(ChatColor.RED + "I'll make this at some point");
-            } else if (args[0].equalsIgnoreCase("delete")) {
+                Guis.openMobDropList((Player) sender);
+            } else if (args[0].equalsIgnoreCase("new") || args[0].equalsIgnoreCase("delete")) {
                 if (!(sender instanceof Player)) {
                     sender.sendMessage(ChatColor.RED + "You need to be a player, sorry :/");
                     return true;

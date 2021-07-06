@@ -6,6 +6,11 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Player;
+import org.bukkit.event.Event;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -16,16 +21,18 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
-public final class Guis {
+public final class Guis implements Listener {
 
-    private Guis() {}
+    private static final String TITLE = ChatColor.DARK_PURPLE + "Mob Drops";
+
+    protected Guis() {}
 
     // TODO: Add pages support
-    public static void openMobDropList() {
+    public static void openMobDropList(Player player) {
         final Set<Drop> drops = SfMobDrops.getInstance().getDrops();
         final int size = (drops.size() + 8) / 9 * 9;
 
-        final Inventory inv = Bukkit.createInventory(null, size, ChatColor.DARK_PURPLE + "Mob Drops");
+        final Inventory inv = Bukkit.createInventory(null, size, TITLE);
         for (Drop drop : drops) {
             final SlimefunItem item = drop.getSlimefunItem();
             if (item == null) continue;
@@ -52,6 +59,8 @@ public final class Guis {
 
             inv.addItem(is);
         }
+
+        player.openInventory(inv);
     }
 
     // TODO: Get some mob heads
@@ -93,5 +102,13 @@ public final class Guis {
             }
         }
         return new String(chars);
+    }
+
+    @EventHandler
+    public void onInvClick(@Nonnull InventoryClickEvent e) {
+        if (e.getView().getTitle().equals(TITLE)) {
+            e.setCancelled(true);
+            e.setResult(Event.Result.DENY);
+        }
     }
 }
