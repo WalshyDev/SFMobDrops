@@ -1,0 +1,127 @@
+name: Bug Report
+description: Report a Bug or an Issue.
+labels: ['🐞 Bug Report']
+
+body:
+- type: markdown
+  attributes:
+    value: |
+      ## 👋 Welcome to the SFMobDrops Bug Tracker
+      If you need any help to identify the problem, visit the [Slimefun Discord server](https://discord.gg/slimefun) and see if others experience a similar issue.
+      Also take a look at the list of [existing Issues](https://github.com/Slimefun/Slimefun4/issues).
+      <br /><strong><i>Fields marked with an asterisk (*) are required.</i></strong>
+      <br />
+
+- id: checklist
+  type: checkboxes
+  attributes:
+    label: '❗ Checklist'
+    description: Please go through this checklist before creating the issue.
+    options:
+    - label: I am using an up to date "DEV" (not "RC") version of SFMobDrops and Slimefun.
+      required: true
+    - label: I searched for similar open issues and could not find an existing bug report on this.
+      required: true
+
+- id: description
+  type: textarea
+  validations:
+    required: true
+  attributes:
+    label: '📍 Description'
+    description: |
+      A clear and detailed description of what went wrong.
+      The more information you can provide, the easier we can handle this problem.
+    placeholder: |
+      When doing [...] I experienced [...], I am pretty sure this is not intended and should be fixed.
+
+- id: reproduction-steps
+  type: textarea
+  validations:
+    required: true
+  attributes:
+    label: '📑 Reproduction Steps'
+    description: |
+      Tell us the exact steps to reproduce this issue, the more detailed the easier we can reproduce it.
+    placeholder: |
+      1. Do [...]
+      2. Then do [...]
+      3. Now [...] happens
+
+- id: expected-behaviour
+  type: textarea
+  validations:
+    required: true
+  attributes:
+    label: '💡 Expected Behavior'
+    description: |
+      What were you expecting to happen?
+      What do you think would have been the correct behaviour?
+    placeholder: |
+      I expected [...] to happen.
+
+- id: server-log
+  type: input
+  attributes:
+    label: '📜 Server Log'
+    description: |
+      Take a look at your Server Log and upload any error messages from SFMobDrops to a pasting site (e.g. https://pastebin.com/).
+      If you are unsure about it, post your full log, you can find it under /logs/latest.log
+    placeholder: https://pastebin.com/...
+
+- id: server-software
+  type: dropdown
+  validations:
+    required: true
+  attributes:
+    label: '💻 Server Software'
+    description: 'Please select the software your Server is running on'
+    options:
+      - Spigot
+      - Paper
+      - Tuinity
+      - Airplane
+      - Other (please specify in your description)
+
+- id: minecraft-version
+  type: dropdown
+  validations:
+    required: true
+  attributes:
+    label: '🎮 Minecraft Version'
+    description: 'Please select the Minecraft version of the server'
+    options:
+      - 1.17.x
+      - 1.16.x
+      - 1.15.x
+      - 1.14.x
+      - (Older versions are not supported)
+
+- id: versions
+  type: textarea
+  validations:
+    required: true
+  attributes:
+    label: '⭐ SFMobDrops and Slimefun version'
+    description: |
+      **"latest" is not a version number, we need the exact version.**
+      We recommend running "/sf versions" and uploading a screenshot of that.
+      Make sure that the screenshot covers the entire output of that command.
+    placeholder: SFMobDrops version [...] and Slimefun version [...]
+
+- id: other-versions
+  type: textarea
+  attributes:
+    label: '🧭 Other plugins'
+    description: |
+      If your issue is related to another plugin, make sure to include this here!
+    placeholder: The issue is related to plugin [...], version [...]
+
+- type: markdown
+  attributes:
+    value: |
+      ## ❤️ Thank you for submitting your bug report!
+      If you find any additional info that can help to identify this problem, don't hesitate to comment on your issue!
+      Any additional info can help us fix this bug faster.
+      In the meantime, try visiting the [Slimefun Discord server](https://discord.gg/slimefun).
+      Perhaps someone else has experienced a similar issue.
