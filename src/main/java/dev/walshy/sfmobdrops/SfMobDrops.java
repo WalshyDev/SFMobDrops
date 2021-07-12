@@ -29,7 +29,7 @@ public class SfMobDrops extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
-        instance = this;
+        setInstance(this);
         if (!new File(getDataFolder(), "config.yml").exists()) {
             saveDefaultConfig();
         }
@@ -46,7 +46,7 @@ public class SfMobDrops extends JavaPlugin implements Listener {
 
     @Override
     public void onDisable() {
-        instance = null;
+        setInstance(null);
     }
 
     protected void loadConfig() {
@@ -194,5 +194,9 @@ public class SfMobDrops extends JavaPlugin implements Listener {
     @Nonnull
     public static SfMobDrops getInstance() {
         return instance;
+    }
+
+    private static void setInstance(SfMobDrops ins) {
+        instance = ins;
     }
 }

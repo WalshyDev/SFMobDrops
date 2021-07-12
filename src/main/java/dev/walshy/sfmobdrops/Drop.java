@@ -5,6 +5,7 @@ import org.bukkit.entity.EntityType;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.Objects;
 
 public class Drop {
 
@@ -59,5 +60,24 @@ public class Drop {
     @Nullable
     public SlimefunItem getSlimefunItem() {
         return SlimefunItem.getByID(getSlimefunId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(dropsFrom, slimefunId, chance, entityName, entityNbtTag, amount);
+    }
+
+    public boolean equals(Object o) {
+        if (!(o instanceof Drop)) {
+            return false;
+        }
+
+        final Drop drop = (Drop) o;
+        return this.dropsFrom == drop.dropsFrom
+            && this.slimefunId.equals(drop.slimefunId)
+            && this.chance == drop.chance
+            && Objects.equals(this.entityName, drop.entityName)
+            && Objects.equals(this.entityNbtTag, drop.entityNbtTag)
+            && this.amount == drop.amount;
     }
 }
