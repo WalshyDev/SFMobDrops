@@ -1,5 +1,6 @@
 package dev.walshy.sfmobdrops;
 
+import io.github.thebusybiscuit.cscorelib2.updater.GitHubBuildsUpdater;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
 import me.mrCookieSlime.Slimefun.cscorelib2.chat.ChatColors;
 import org.bstats.bukkit.Metrics;
@@ -32,6 +33,10 @@ public class SfMobDrops extends JavaPlugin implements Listener {
         setInstance(this);
         if (!new File(getDataFolder(), "config.yml").exists()) {
             saveDefaultConfig();
+        }
+
+        if (getConfig().getBoolean("settings.autoUpdate", true) && getDescription().getVersion().startsWith("DEV - ")) {
+            new GitHubBuildsUpdater(this, getFile(), "WalshyDev/SFMobDrops/main").start();
         }
 
         new Metrics(this, 11950);

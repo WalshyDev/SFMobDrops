@@ -33,3 +33,6 @@ drops:
     name: '&cAmazing Dragon'
     nbtTag: 'plugin_name:awesome_mob'
     amount: 6
+
+settings:
+  autoUpdate: true
