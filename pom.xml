@@ -90,18 +90,10 @@
                             <shadedPattern>dev.walshy.sfmobdrops.bstats</shadedPattern>
                         </relocation>
                         <relocation>
-                            <pattern>io.github.thebusybiscuit.cscorelib2</pattern>
-                            <shadedPattern>dev.walshy.sfmobdrops.cscorelib2</shadedPattern>
+                            <pattern>io.github.bakedlibs.dough</pattern>
+                            <shadedPattern>dev.walshy.sfmobdrops.dough</shadedPattern>
                         </relocation>
                     </relocations>
-                    <filters>
-                        <filter>
-                            <artifact>com.github.thebusybiscuit:CS-CoreLib2</artifact>
-                            <includes>
-                                <include>**/cscorelib2/updater/**</include>
-                            </includes>
-                        </filter>
-                    </filters>
                 </configuration>
 
                 <executions>
