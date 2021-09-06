@@ -1,7 +1,6 @@
 package dev.walshy.sfmobdrops;
 
-import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
-import me.mrCookieSlime.Slimefun.cscorelib2.chat.ChatColors;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -49,7 +48,7 @@ public final class Guis implements Listener {
             lore.add(ChatColor.LIGHT_PURPLE + "" + drop.getChance() + "% " + ChatColor.GRAY + "chance");
 
             if (drop.getEntityName() != null) {
-                lore.add(ChatColor.GRAY + "Requires name: " + ChatColors.color(drop.getEntityName()));
+                lore.add(ChatColor.GRAY + "Requires name: " + Constants.color(drop.getEntityName()));
             }
             if (drop.getEntityNbtTag() != null) {
                 lore.add(ChatColor.GRAY + "Requires tag: " + ChatColor.LIGHT_PURPLE + drop.getEntityNbtTag());

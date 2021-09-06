@@ -30,14 +30,14 @@
         <dependency>
             <groupId>com.github.slimefun</groupId>
             <artifactId>Slimefun4</artifactId>
-            <version>RC-25</version>
+            <version>RC-28</version>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
-            <groupId>com.github.thebusybiscuit</groupId>
-            <artifactId>CS-CoreLib2</artifactId>
-            <version>0.32.1</version>
+            <groupId>io.github.baked-libs</groupId>
+            <artifactId>dough-updater</artifactId>
+            <version>1.0.3</version>
         </dependency>
 
         <dependency>

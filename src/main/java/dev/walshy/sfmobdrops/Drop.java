@@ -1,6 +1,6 @@
 package dev.walshy.sfmobdrops;
 
-import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import org.bukkit.entity.EntityType;
 
 import javax.annotation.Nonnull;
@@ -59,7 +59,7 @@ public class Drop {
 
     @Nullable
     public SlimefunItem getSlimefunItem() {
-        return SlimefunItem.getByID(getSlimefunId());
+        return SlimefunItem.getById(getSlimefunId());
     }
 
     @Override

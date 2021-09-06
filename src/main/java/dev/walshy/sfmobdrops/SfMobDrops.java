@@ -1,8 +1,7 @@
 package dev.walshy.sfmobdrops;
 
-import io.github.thebusybiscuit.cscorelib2.updater.GitHubBuildsUpdater;
-import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
-import me.mrCookieSlime.Slimefun.cscorelib2.chat.ChatColors;
+import io.github.bakedlibs.dough.updater.GitHubBuildsUpdater;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
@@ -88,7 +87,7 @@ public class SfMobDrops extends JavaPlugin implements Listener {
         final Drop drop = findDropFromEntity(e.getEntity());
 
         if (drop != null && ThreadLocalRandom.current().nextDouble(100) <= drop.getChance()) {
-            final SlimefunItem item = SlimefunItem.getByID(drop.getSlimefunId());
+            final SlimefunItem item = SlimefunItem.getById(drop.getSlimefunId());
 
             if (item != null && !item.isDisabledIn(e.getEntity().getWorld())) {
                 final ItemStack dropping = item.getItem().clone();
@@ -146,7 +145,7 @@ public class SfMobDrops extends JavaPlugin implements Listener {
             return false;
         }
 
-        if (SlimefunItem.getByID(sfItem) == null) {
+        if (SlimefunItem.getById(sfItem) == null) {
             getLogger().warning("Invalid Slimefun Item ID! Given: " + sfItem + " - valid values can be found "
                 + "here: https://sf-items.walshy.dev/");
             return false;
@@ -170,7 +169,7 @@ public class SfMobDrops extends JavaPlugin implements Listener {
         for (Drop drop : this.drops) {
             if (entity.getType() == drop.getDropsFrom()) {
                 if (drop.getEntityName() != null && entity.getCustomName() != null
-                    && !ChatColors.color(drop.getEntityName()).equals(entity.getCustomName())
+                    && !Constants.color(drop.getEntityName()).equals(entity.getCustomName())
                 ) {
                     continue;
                 }
