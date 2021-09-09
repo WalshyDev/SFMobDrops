@@ -34,9 +34,15 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- Dough -->
         <dependency>
             <groupId>io.github.baked-libs</groupId>
             <artifactId>dough-updater</artifactId>
+            <version>1.0.3</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.baked-libs</groupId>
+            <artifactId>dough-common</artifactId>
             <version>1.0.3</version>
         </dependency>
 
