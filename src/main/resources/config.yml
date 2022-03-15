@@ -36,3 +36,4 @@ drops:
 
 settings:
   autoUpdate: true
+  onlyPlayerDrops: false

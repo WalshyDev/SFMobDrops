@@ -5,6 +5,7 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
@@ -84,6 +85,9 @@ public class SfMobDrops extends JavaPlugin implements Listener {
 
     @EventHandler
     public void onMobDeath(@Nonnull EntityDeathEvent e) {
+
+        if (getConfig().getBoolean("settings.only-player-drops", false) && e.getEntity().getKiller() == null) return;
+
         final Drop drop = findDropFromEntity(e.getEntity());
 
         if (drop != null && ThreadLocalRandom.current().nextDouble(100) <= drop.getChance()) {
