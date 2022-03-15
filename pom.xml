@@ -30,7 +30,7 @@
         <dependency>
             <groupId>com.github.slimefun</groupId>
             <artifactId>Slimefun4</artifactId>
-            <version>RC-28</version>
+            <version>RC-31</version>
             <scope>provided</scope>
         </dependency>
 
@@ -38,18 +38,18 @@
         <dependency>
             <groupId>io.github.baked-libs</groupId>
             <artifactId>dough-updater</artifactId>
-            <version>1.0.3</version>
+            <version>1.1.2</version>
         </dependency>
         <dependency>
             <groupId>io.github.baked-libs</groupId>
             <artifactId>dough-common</artifactId>
-            <version>1.0.3</version>
+            <version>1.1.2</version>
         </dependency>
 
         <dependency>
             <groupId>org.bstats</groupId>
             <artifactId>bstats-bukkit</artifactId>
-            <version>2.2.1</version>
+            <version>3.0.0</version>
         </dependency>
 
         <dependency>
