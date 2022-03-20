@@ -84,8 +84,9 @@ public class SfMobDrops extends JavaPlugin implements Listener {
 
     @EventHandler
     public void onMobDeath(@Nonnull EntityDeathEvent e) {
-
-        if (getConfig().getBoolean("settings.only-player-drops", false) && e.getEntity().getKiller() == null) return;
+        if (getConfig().getBoolean("settings.onlyPlayerDrops", false) && e.getEntity().getKiller() == null) {
+            return;
+        }
 
         final Drop drop = findDropFromEntity(e.getEntity());
 
